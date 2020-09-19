@@ -6,9 +6,10 @@ const mongoose = require("mongoose");
 const session = require("cookie-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+/* const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
-const findOrCreate = require("mongoose-findorcreate");
+const findOrCreate = require("mongoose-findorcreate"); 
+*/
 
 const app = express();
 app.use(express.static("public"));
@@ -46,7 +47,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new GoogleStrategy({
+/* passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: "https://secrets-prince.herokuapp.com/auth/google/secrets-prince"
@@ -69,6 +70,7 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
+*/
 
 app.get("/", (req,res)=>{
   res.render("home");
